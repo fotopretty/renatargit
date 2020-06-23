@@ -1,0 +1,81 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">รหัส</div>
+        <div class="col text-left text-primary"><%= docid %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">ชื่อ</div>
+        <div class="col text-left text-primary"><%= detailist.name %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">นามสกุล</div>
+        <div class="col text-left text-primary"><%= detailist.surname %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">ที่อยู่</div>
+        <div class="col text-left text-primary"><%= detailist.addr1 %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">ที่อยู่เพิ่มเติม</div>
+        <div class="col text-left text-primary">
+            <% if (detailist.addr2) { %>
+            <%= detailist.addr2 %>
+            <% } %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">ตำบล/แขวง</div>
+        <div class="col text-left text-primary"><%= detailist.subdist %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">อำเภอ/เขต</div>
+        <div class="col text-left text-primary"><%= detailist.district %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">จังหวัด</div>
+        <div class="col text-left text-primary"><%= detailist.province %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">รหัสไปรษณีย์</div>
+        <div class="col text-left text-primary"><%= detailist.postal %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">โทรศัพท์บ้าน</div>
+        <div class="col text-left text-primary">
+            <% if (detailist.tel) { %>
+            <%= detailist.tel %>
+            <% } %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">มือถือ</div>
+        <div class="col text-left text-primary"><%= detailist.mobile %></div>
+    </div>
+    <div class="row">
+        <div class="col-4">E-mail</div>
+        <div class="col text-left text-primary">
+            <% if (detailist.email) { %>
+            <%= detailist.email %>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">รหัสตัวแทน</div>
+        <div class="col text-left text-primary">
+            <% if (detailist.dealerid) { %>
+            <%= detailist.dealerid %>
+            <% } %>
+        </div>
+    </div>
+    <hr>
+    <div>หากต้องการแก้ไขข้อมูลของลูกค้า แคมหน้าจอนี้มา ส่งให้ทางไลน์ </div>
+    <hr>
+    <a class="btn btn-primary btn-lg btn-block" role="button" href="https://lin.ee/7lKPXT1">คลิก แจ้งแก้ไข</a>
+</div>
+<BR><BR><BR>
+
+<%- include('footer') %>

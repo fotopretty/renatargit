@@ -1,0 +1,23 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+<div class="container-fluid">
+    <div class="row"><div class="col"><strong>ประวัติการสั่งซื้อ</strong></div></div>
+    <hr>
+    <% data.forEach(order => { %>
+    <div class="row" id="<%= order.id %>">
+        <div class="col-5">
+            boostburn<br>fiberX<br>aurra plus
+        </div>
+        <div class="col-2">
+            <%= order.data().boostburn %><br><%= order.data().fiberx %><br><%= order.data().plus %>
+        </div>
+    </div>
+    <div class="row"><div class="col text-right"><%= order.date %></div></div>
+    <div class="row"><div class="col text-right"><%= order.data().customer %></div></div>
+    <hr>
+    <% }); %>
+</div>
+
+<BR><BR><BR>
+<%- include('footer') %>

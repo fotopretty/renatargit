@@ -1,0 +1,38 @@
+<nav class="top-right open">
+    <a class="disc l1" href="/order">
+        <div>Order</div>
+    </a>
+    <a class="disc l2" href="/customer">
+        <div>Customer</div>
+    </a>
+    <a class="disc l3">
+        <div>Campaign</div>
+    </a>
+    <a class="disc l4" href="/profile">
+        <div>Profile</div>
+    </a>
+    <a class="disc l5 toggle">
+        Menu
+    </a>
+</nav>
+
+<script>
+    toggle = document.querySelectorAll(".toggle")[0];
+    nav = document.querySelectorAll("nav")[0];
+    toggle_open_text = 'Menu';
+    toggle_close_text = 'Close';
+
+    toggle.addEventListener('click', function () {
+        nav.classList.toggle('open');
+
+        if (nav.classList.contains('open')) {
+            toggle.innerHTML = toggle_close_text;
+        } else {
+            toggle.innerHTML = toggle_open_text;
+        }
+    }, false);
+
+    setTimeout(function () {
+        nav.classList.toggle('open');
+    }, 800);
+</script>

@@ -1,0 +1,110 @@
+<%- include('header') %>
+<%- include('navbar') %>
+<script src="/js/validator.js"></script>
+<link rel="stylesheet" href="/css/form.css">
+
+<div class="container-fluid">
+
+    <strong>กรอกชื่อ-นามสกุล ผู้รับสินค้า | <a href="/customer/cuslist">รายชื่อลูกค้า</a></strong>
+    <form class="form-horizontal col-sm-8" id="demo" action="/customer" method="POST">
+        <div class="form-group">
+            <label for="name">ชื่อ</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="ชื่อผู้รับ" value="" required
+                autofocus>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+            <div class="invalid-feedback">กรุณากรอก ชื่อ ผู้รับ</div>
+
+        </div>
+        <div class="form-group">
+            <label for="surname">นามสกุล</label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="นามสกุลผู้รับ" value=""
+                required autofocus>
+            <div class="invalid-feedback">กรุณากรอก นามสกุล ผู้รับ</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <hr>
+        <strong>กรอกที่อยู่ผู้รับสินค้า โดยละเอียด</strong>
+        <div class="form-group">
+            <label for="addr1">ที่อยู่</label>
+            <input type="text" class="form-control" id="addr1" name="addr1" placeholder="ที่อยู่ผู้รับ" value=""
+                required autofocus>
+            <div class="invalid-feedback">กรุณากรอก ที่อยู่ผู้รับ</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="addr2">ที่อยู่ เพิ่มเติม (ไม่จำเป็น)</label>
+            <input type="text" class="form-control" id="addr2" name="addr2" placeholder="ที่อยู่ผู้รับ เพิ่มเติม"
+                value="">
+        </div>
+        <div class="form-group">
+            <label for="subdistrict">ตำบล / แขวง</label>
+            <input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล / แขวง"
+                autocomplete="off" value="" required autofocus>
+            <div class="invalid-feedback">กรุณากรอก ตำบล / แขวง</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="district">อำเภอ / เขต</label>
+            <input type="text" class="form-control" id="district" name="district" placeholder="อำเภอ / เขต" value=""
+                required autofocus>
+            <div class="invalid-feedback">กรุณากรอก อำเภอ / เขต</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="province">จังหวัด</label>
+            <input type="text" class="form-control" id="province" name="province" placeholder="จังหวัด" value=""
+                required autofocus>
+            <div class="invalid-feedback">กรุณากรอก จังหวัด</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="postal">รหัสไปรษณีย์</label>
+            <input type="text" class="form-control" id="postal" name="postal" placeholder="รหัสไปรษณีย์" required
+                autofocus>
+            <div class="invalid-feedback">กรุณากรอก รหัสไปรษณีย์ 5 ตัว</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <hr>
+        <strong>อุปกรณ์สื่อสาร ติดต่อ</strong>
+        <div class="form-group">
+            <label for="mobile1">มือถือ</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="เบอร์มือถือ" required
+                autofocus>
+            <div class="invalid-feedback">กรุณากรอก เบอร์มือถือ</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="telephone">โทรศัพท์บ้าน (ไม่จำเป็น)</label>
+            <input type="text" class="form-control" id="telephone" name="telephone" placeholder="เบอร์โทรศัพท์บ้าน"
+                autofocus>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail (ไม่จำเป็น)</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+            <div class="invalid-feedback">กรุณากรอก E-mail ให้ถูกรูปแบบ</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="dealerid">รหัสตัวแทนผู้รับสินค้า (ไม่จำเป็น)</label>
+            <input type="text" class="form-control" id="dealerid" name="dealerid" placeholder="รหัสตัวแทนผู้รับสินค้า">
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+        </div>
+        <hr>
+        <div class="form-check">
+            <label class="form-check-label" for="checkbox"><input class="form-check-input" type="checkbox" id="checkbox"
+                    required>ยืนยันว่าข้อมูลที่กรอกถูกต้อง</label>
+            <div class="invalid-feedback">กรุณากดยืนยันว่าข้อมูลที่กรอกถูกต้อง</div>
+            <div class="valid-feedback">เยี่ยมมากพี่สาว</div>
+
+        </div>
+        <hr>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mb-2">บันทึก</button>
+        </div>
+    </form>
+</div>
+<BR><BR><BR>
+
+<% - include('footer') %>

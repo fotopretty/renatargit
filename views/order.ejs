@@ -1,0 +1,130 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+<div class="container-fluid">
+    <form action="/order" method="POST">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="th-lg">รูปสินค้า</th>
+                        <th class="th-lg">ชื่อสินค้า</th>
+                        <th class="th-lg">จำนวน<BR>( กล่อง )</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="/image/boostburn.jpg" alt="Boost Burn" class="img-responsive" /></td>
+                        <td>
+                            <h4 class="nomargin">Boost Burn</h4>
+                        </td>
+                        <td>
+                            <select class="custom-select" id="order1" name="boostburn">
+                                <option>0</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50</option>
+                                <option>55</option>
+                                <option>60</option>
+                                <option>65</option>
+                                <option>70</option>
+                                <option>75</option>
+                                <option>80</option>
+                                <option>85</option>
+                                <option>90</option>
+                                <option>95</option>
+                                <option>100</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="/image/fiberx.jpg" alt="Fiber X" class="img-responsive" /></td>
+                        <td>
+                            <h4 class="nomargin">Fiber X</h4>
+                        </td>
+                        <td>
+                            <select class="custom-select" id="order2" name="fiberx">
+                                <option>0</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50</option>
+                                <option>55</option>
+                                <option>60</option>
+                                <option>65</option>
+                                <option>70</option>
+                                <option>75</option>
+                                <option>80</option>
+                                <option>85</option>
+                                <option>90</option>
+                                <option>95</option>
+                                <option>100</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="/image/plus.jpg" alt="Plus" class="img-responsive" /></td>
+                        <td>
+                            <h4 class="nomargin">Plus</h4>
+                        </td>
+                        <td>
+                            <select class="custom-select" id="order3" name="plus">
+                                <option>0</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50</option>
+                                <option>55</option>
+                                <option>60</option>
+                                <option>65</option>
+                                <option>70</option>
+                                <option>75</option>
+                                <option>80</option>
+                                <option>85</option>
+                                <option>90</option>
+                                <option>95</option>
+                                <option>100</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <select class="custom-select" id="customer" name="customer">
+                                <% cuslist.forEach(list => { %>
+                                <option value="<%= list.id %>"><%= list.data().name %></option>
+
+                                <% }); %>
+                            </select>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">สั่งสินค้า</button>
+        </div>
+    </form>
+</div>
+<BR><BR><BR>
+
+<%- include('footer') %>

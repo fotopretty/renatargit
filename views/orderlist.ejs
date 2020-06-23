@@ -1,0 +1,67 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+<div class="container-fluid">
+    <div class="row p-2">track order # <%= docref %></div>
+    <div class="bs-example">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>สินค้า</th>
+                    <th>จำนวน</th>
+                    <th>หมายเหตุ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>boostburn</td>
+                    <td><%= datas.boostburn %></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>fiberX</td>
+                    <td><%= datas.fiberx %></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>aura plus</td>
+                    <td><%= datas.plus %></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="col">
+        <div class="row">
+            <strong>ข้อมูลผู้รับสินค้าปลายทาง</strong>
+        </div>
+        <div class="row">
+            <%= custname.data().name %> <%= custname.data().surname %>
+        </div>
+        <div class="row">
+            <%= custname.data().addr1 %>
+        </div>
+        <div class="row">
+            <%= custname.data().addr2 %>
+        </div>
+        <div class="row">
+            <%= custname.data().subdist %> <%= custname.data().district %>
+        </div>
+        <div class="row">
+            <%= custname.data().province %> <%= custname.data().postal %>
+        </div>
+        <div class="row">
+            <%= custname.data().mobile %> <%= custname.data().tel %>
+        </div>
+        <div class="row">
+            <%= custname.data().email %>
+        </div>
+    </div>
+</div>
+<BR><BR><BR>
+<%- include('footer') %>

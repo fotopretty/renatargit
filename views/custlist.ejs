@@ -1,0 +1,24 @@
+<%- include('header') %>
+<%- include('navbar') %>
+<div class="container-fluid">
+    <% datalist.forEach(list => { %>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="<%= list.id %>">
+            <a href="/customer/detail/<%= list.id %>">
+                <div class="row">
+                    <div class="col-7">
+                        <p class="text-primary"><%= list.data().name %></p>
+                        <p class="text-primary"> <%= list.data().surname %></p>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-success"><%= list.data().province %> </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <% }); %>
+</div>
+<%- include('footer') %>

@@ -1,0 +1,24 @@
+<%- include('header') %>
+<%- include('navbar') %>
+<!-- <p><img src= "/profile/<%= user.image %>" ><br/>
+    ID: <%= user.id %><br />
+    Username: <%= user.username %><br />
+    Name: <%= user.displayName %><br />
+    <% if (user.emails) { %>
+    Email: <%= user.emails %><br />
+    <% } %>
+    <% if (user.permission) { %>
+    ระดับการเข้าถึง: <%= user.permission %><br />
+    <% } %>
+</p> -->
+
+<div class="card">
+    <img src="/profile/<%= user.image %>" alt="<%= user.displayName %>" style="width:100%">
+    <h5><%= user.displayName %></h5>
+    <p>ID: <%= user.id %></p>
+    <% if (user.emails) { %><p>Email: <%= user.emails %></p><% } %>
+    <% if (user.permission) { %><p>ระดับการเข้าถึง: <%= user.permission %></p><% } %>
+    <button class="button">Contact</button>
+</div>
+
+<%- include('footer') %>

@@ -1,0 +1,40 @@
+{
+    "name": "renatar",
+    "version": "1.0.0",
+    "description": "renatar order",
+    "main": "app.js",
+    "dependencies": {
+        "@google-cloud/connect-firestore": "^1.0.6",
+        "@google-cloud/firestore": "^3.8.5",
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "connect-ensure-login": "^0.1.1",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.5",
+        "ejs": "^3.1.2",
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "express-session": "^1.17.1",
+        "firebase-admin": "^8.12.1",
+        "firebase-functions": "^3.7.0",
+        "jwt-simple": "^0.5.6",
+        "morgan": "^1.10.0",
+        "node-sass": "^4.14.1",
+        "passport": "^0.4.1",
+        "passport-jwt": "^4.0.0",
+        "passport-local": "^1.0.0",
+        "request": "^2.88.2",
+        "save": "^2.4.0",
+        "serve-favicon": "^2.5.0",
+        "session": "^0.1.0",
+        "tslint": "^6.1.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "compile:sass": "node-sass scss/index.scss css/style.css -w"
+    },
+    "author": "sangudom system",
+    "license": "ISC"
+}
