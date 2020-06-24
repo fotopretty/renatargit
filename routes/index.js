@@ -62,41 +62,60 @@ router.get(
     //console.log(req.user.permission);
     //res.redirect("/login", { user: req.session.user });
 
-    try {
-      var db = admin.firestore();
-      var orderRef = db.collection("order").where("id", "==", req.user.id);
-      var getDoc = orderRef
-        .get()
-        .then((snapshot) => {
-          if (snapshot.empty) {
-            console.log("ไม่มีข้อมูล");
-            res.redirect("profile");
-            return;
-          }
+    var dataTmp = [];
+    var db = admin.firestore();
+    var orderRef = db.collection("order").where("id", "==", req.user.id);
+    var getdoc = orderRef
+      .get()
+      .then((snapshot) => {
+        if (snapshot.empty) {
+          console.log("ไม่มีข้อมูล");
+          res.redirect("profile");
+          return;
+        }
 
-          snapshot.forEach((doc) => {
-            var dt = new Date(doc.data().created * 1000);
-            var formattedDate =
-              ("0" + dt.getDate()).slice(-2) +
-              "/" +
-              ("0" + (dt.getMonth() + 1)).slice(-2) +
-              "/" +
-              dt.getFullYear() +
-              " " +
-              ("0" + dt.getHours()).slice(-2) +
-              ":" +
-              ("0" + dt.getMinutes()).slice(-2);
-            doc.date = formattedDate;
-            console.log(doc.id, "=>", doc.date);
-          });
-          res.render("index", { data: snapshot });
-        })
-        .catch((err) => {
-          console.log("ผิดพลาด ", err);
+        snapshot.forEach((doc) => {
+          var storage = {};
+          var custmp = [];
+          var dt = new Date(doc.data().created * 1000);
+          var formattedDate =
+            ("0" + dt.getDate()).slice(-2) +
+            "/" +
+            ("0" + (dt.getMonth() + 1)).slice(-2) +
+            "/" +
+            dt.getFullYear() +
+            " " +
+            ("0" + dt.getHours()).slice(-2) +
+            ":" +
+            ("0" + dt.getMinutes()).slice(-2);
+
+          let customerid = doc.data().customer;
+          storage = doc.data();
+          storage.orderid = doc.id;
+          storage.created = formattedDate;
+          //console.log(storage);
+
+          let abc = db.collection("customer")
+            .doc(customerid)
+            .get()
+            .then((doccus) => {
+              //console.log(doccus.data());
+              return doccus.data().name;
+            })
+            .catch((err) => {
+              console.log("ผิดพลาด ", err);
+            });
+
+          console.log(abc);
+          dataTmp.push(storage);
+          //  console.log(doc.id, "=>", storage);
         });
-    } catch (err) {
-      console.log(err);
-    }
+        //console.log(dataTmp);
+        res.render("index", { data: dataTmp });
+      })
+      .catch((err) => {
+        console.log("ผิดพลาด ", err);
+      });
   }
 );
 
@@ -173,11 +192,6 @@ router.post(
         console.log("added Order : ", ref.id);
         refid = ref.id;
 
-        //console.log(cusid);
-        //data.docid = 100;
-        //return req;
-
-        //var datac = ref.data();
         res.render("orderlist", {
           datas: data,
           custname: customers,
@@ -188,27 +202,8 @@ router.post(
       console.log(err);
     }
   }
-  //res.send("post order");
 );
 
-/* async function orderAdd(req) {
-  try {
-    var db = admin.firestore();
-    var query = db.collection("order");
-    var result = await query.add(req).then((ref) => {
-      console.log("added Order : ", ref.id);
-      req.docid = ref.id;
-      //console.log(docid);
-      req.docid = 100;
-      //return req;
-    });
-  } catch (err) {
-    console.log(err);
-  }
-
-  return result;
-}
- */
 function customerFind(cusid) {
   console.log(cusid);
   var db = admin.firestore();

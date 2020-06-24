@@ -1,0 +1,30 @@
+[33mcommit 2e68e1243959058fa51be7e065818d4af40403b4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: b67cfd9 2a5c534
+Author: fotopretty <fotopretty@gmail.com>
+Date:   Tue Jun 23 15:42:07 2020 +0700
+
+    Merge branch 'master' of https://github.com/fotopretty/renatargit
+
+[33mcommit b67cfd91cf04c46f4975309557e07899cc6f06f4[m
+Author: fotopretty <fotopretty@gmail.com>
+Date:   Tue Jun 23 15:41:50 2020 +0700
+
+    ส่งขึ้น git
+
+[33mcommit 2a5c53495e00ac17099584a50f9ace8c53c65d6f[m
+Author: Voravit Euavatanakorn <fotopretty@yahoo.com>
+Date:   Tue Jun 23 15:25:53 2020 +0700
+
+    Set theme jekyll-theme-slate
+
+[33mcommit 30faaea9b94afdb900d7d522c7e28d9ead22075d[m
+Author: Voravit Euavatanakorn <fotopretty@yahoo.com>
+Date:   Tue Jun 23 15:25:31 2020 +0700
+
+    Create FUNDING.yml
+
+[33mcommit 7347976a146f0b3d49b7093437eec0c6c5e98620[m
+Author: Voravit Euavatanakorn <fotopretty@yahoo.com>
+Date:   Tue Jun 23 15:22:42 2020 +0700
+
+    Initial commit
