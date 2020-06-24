@@ -95,22 +95,10 @@ router.get(
           storage.created = formattedDate;
           //console.log(storage);
 
-          let abc = db.collection("customer")
-            .doc(customerid)
-            .get()
-            .then((doccus) => {
-              //console.log(doccus.data());
-              return doccus.data().name;
-            })
-            .catch((err) => {
-              console.log("ผิดพลาด ", err);
-            });
-
-          console.log(abc);
           dataTmp.push(storage);
-          //  console.log(doc.id, "=>", storage);
+
         });
-        //console.log(dataTmp);
+        console.log(dataTmp);
         res.render("index", { data: dataTmp });
       })
       .catch((err) => {
