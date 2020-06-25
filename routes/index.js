@@ -96,8 +96,9 @@ router.get(
           //console.log(storage);
 
           dataTmp.push(storage);
-
         });
+
+        
         console.log(dataTmp);
         res.render("index", { data: dataTmp });
       })
@@ -121,6 +122,16 @@ router.get(
   require("connect-ensure-login").ensureLoggedIn(),
   function (req, res) {
     res.render("profile", { user: req.user });
+  }
+);
+
+router.get(
+  "/orderdetail/:orderid",
+  require("connect-ensure-login").ensureLoggedIn(),
+  function (req, res) {
+    var db = admin.firestore();
+    console.log(req.params.orderid);
+    res.send(req.params.orderid);
   }
 );
 

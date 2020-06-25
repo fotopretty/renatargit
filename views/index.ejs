@@ -7,23 +7,24 @@
     </div>
     <hr>
     <% data.forEach(order => { %>
-    <div class="row" id="<%= order.id %>">
-        <div class="col-9 text-right orderlist">boostburn</div>
-        <div class="col text-left"><%= order.boostburn %></div>
-        <div class="col-9 text-right orderlist">fiberX</div>
-        <div class="col text-left"><%= order.fiberx %></div>
-        <div class="col-9 text-right orderlist">aurra plus</div>
-        <div class="col text-left"><%= order.plus %></div>
-    </div>
-    <div class="row orderlistinfo">
-        <div class="col-4 text-left">สั่งสินค้าวันที่</div>
-        <div class="col text-left"><%= order.created %></div>
-    </div>
-    <div class="row orderlistinfo">
-        <div class="col-4 text-left">เลขสั่งสินค้า</div>
-        <div class="col text-left"><%= order.orderid %></div>
-    </div>
-
+    <a href="/orderdetail/<%= order.id %>">
+        <div class="row" id="<%= order.id %>">
+            <div class="col-9 text-right orderlist">boostburn</div>
+            <div class="col text-left"><%= order.boostburn %></div>
+            <div class="col-9 text-right orderlist">fiberX</div>
+            <div class="col text-left"><%= order.fiberx %></div>
+            <div class="col-9 text-right orderlist">aurra plus</div>
+            <div class="col text-left"><%= order.plus %></div>
+        </div>
+        <div class="row orderlistinfo">
+            <div class="col-4 text-left">สั่งสินค้าวันที่</div>
+            <div class="col text-left"><%= order.created %></div>
+        </div>
+        <div class="row orderlistinfo">
+            <div class="col-4 text-left">เลขสั่งสินค้า</div>
+            <div class="col text-left"><%= order.orderid %></div>
+        </div>
+    </a>
     <hr>
     <% }); %>
 </div>
