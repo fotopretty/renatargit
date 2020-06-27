@@ -7,6 +7,7 @@ const passport = require("passport"),
 const dbx = require("../db");
 var admin = require("firebase-admin");
 const { ref } = require("firebase-functions/lib/providers/database");
+const { DocumentBuilder } = require("firebase-functions/lib/providers/firestore");
 
 //router.use(bodyParser.urlencoded({ extended: true }));
 //router.use(bodyParser.json());
@@ -98,8 +99,8 @@ router.get(
           dataTmp.push(storage);
         });
 
-        
-        console.log(dataTmp);
+
+        //console.log(dataTmp);
         res.render("index", { data: dataTmp });
       })
       .catch((err) => {
@@ -130,10 +131,40 @@ router.get(
   require("connect-ensure-login").ensureLoggedIn(),
   function (req, res) {
     var db = admin.firestore();
-    console.log(req.params.orderid);
-    res.send(req.params.orderid);
-  }
-);
+    //console.log(req.params.orderid);
+    let orderId = req.params.orderid;
+
+    db.collection("order").doc(orderId).get().then((doc) => {
+      var order;
+
+      var dt = new Date(doc.data().created * 1000);
+      var formatedDate =
+        ("0" + dt.getDate()).slice(-2) +
+        "/" +
+        ("0" + (dt.getMonth() + 1)).slice(-2) +
+        "/" +
+        dt.getFullYear() +
+        " " +
+        ("0" + dt.getHours()).slice(-2) +
+        ":" +
+        ("0" + dt.getMinutes()).slice(-2);
+      order = doc.data();
+      order.created = formatedDate;
+      order.orderid = doc.id;
+      console.log(order);
+      let a = order.customer;
+
+      async function doit(a) {
+        let custdata = await db.collection("customer").doc(a).get().then((doc) => doc.data()).then((user) => {return user});
+        let renhtml = await res.render("orderdetail", { data: order, cusdata: custdata });
+
+      }
+      doit(a);
+
+      console.log("end");
+
+    });
+  });
 
 router.get(
   "/order",

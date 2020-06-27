@@ -1,0 +1,45 @@
+<%- include('header') %>
+<%- include('navbar') %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"><strong>รายละเอียดการสั่งสินค้า</strong></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">fiberx</div>
+        <div class="col text-left"><%= data.fiberx%></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">boostburn</div>
+        <div class="col text-left"><%= data.boostburn%></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">aurra plus</div>
+        <div class="col text-left"><%= data.plus%></div>
+    </div>
+    <hr>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">track order</div>
+        <div class="col text-left"><%= data.orderid%></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">สั่งสินค้าวันที่</div>
+        <div class="col text-left"><%= data.created%></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">ผู้รับสินค้า</div>
+        <div class="col text-left"><%= cusdata.name %> <%= cusdata.surname %></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">ที่อยู่ผู้รับสินค้า</div>
+        <div class="col text-left"><%= cusdata.addr1 %> <%= cusdata.addr2 %> <%= cusdata.subdist %> <%= cusdata.district %> <%= cusdata.province %> <%= cusdata.postal %></div>
+    </div>
+    <div class="row orderlistinfo">
+        <div class="col-4 text-left">มือถือ</div>
+        <div class="col text-left"><%= cusdata.mobile %></div>
+    </div>
+</div>
+
+
+
+
+<%- include('footer') %>

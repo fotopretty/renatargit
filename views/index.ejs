@@ -7,8 +7,8 @@
     </div>
     <hr>
     <% data.forEach(order => { %>
-    <a href="/orderdetail/<%= order.id %>">
-        <div class="row" id="<%= order.id %>">
+    <a href="/orderdetail/<%= order.orderid %>">
+        <div class="row">
             <div class="col-9 text-right orderlist">boostburn</div>
             <div class="col text-left"><%= order.boostburn %></div>
             <div class="col-9 text-right orderlist">fiberX</div>
